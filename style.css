@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #5b0f1b;
+}
+
+.carta {
+  position: relative;
+  width: 320px;
+  height: 460px;
+  perspective: 1800px;
+}
+
+.capa, .pagina {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: transform 1.8s ease;
+}
+
+.capa {
+  background: url("capa.png") center/cover no-repeat;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo {
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  color: #ffffff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.45);
+}
+
+.pagina {
+  background: #fffaf0;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  backface-visibility: hidden;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  color: #333;
+}
+
+.pagina1 { z-index: 3; }
+.pagina2 { z-index: 2; }
+.pagina3 {
+  z-index: 1;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pagina3 img {
+  width: 120px;
+  border-radius: 10px;
+}
+
+.carta:hover .capa {
+  transform: rotateY(-160deg);
+}
+
+.pagina.virada {
+  transform: rotateY(-180deg);
+}
